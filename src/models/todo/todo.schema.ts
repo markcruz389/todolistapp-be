@@ -9,13 +9,6 @@ import {
 import sequelize from "../../services/sequelize";
 import { TODO_STATUS } from "../../common/constants";
 
-// type ITodo = {
-//     id: number;
-//     description: string;
-//     status: "pending" | "completed";
-//     isDeleted: boolean;
-// };
-
 export type TodoStatus = "pending" | "completed";
 
 class Todo extends Model<InferAttributes<Todo>, InferCreationAttributes<Todo>> {
@@ -26,8 +19,6 @@ class Todo extends Model<InferAttributes<Todo>, InferCreationAttributes<Todo>> {
     declare createdAt: CreationOptional<Date>;
     declare updatedAt: CreationOptional<Date>;
 }
-
-// class Todo extends Model {}
 
 Todo.init(
     {
@@ -61,20 +52,5 @@ Todo.init(
     },
     { sequelize, modelName: "Todo" }
 );
-
-// const Todo = sequelize.define<Todo>("Todo", {
-//     description: {
-//         type: DataTypes.STRING,
-//         allowNull: false,
-//     },
-//     status: {
-//         type: DataTypes.ENUM(TODO_STATUS.PENDING, TODO_STATUS.COMPLETED),
-//     },
-//     isDeleted: {
-//         type: DataTypes.BOOLEAN,
-//         allowNull: false,
-//         defaultValue: false,
-//     },
-// });
 
 export default Todo;

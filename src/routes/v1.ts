@@ -4,6 +4,6 @@ import todoRouter from "./todo/todo.router";
 
 const api = express.Router();
 
-api.use("/todo", todoRouter);
+api.use("/todos", todoRouter);
 
 export default api;
